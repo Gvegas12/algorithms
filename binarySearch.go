@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-func binarySearch(list [128]int, item int) int {
+func binarySearch(list []int, item int) int {
 	low := 0
 	high := len(list) - 1
 
 	for low <= high {
-		middle := low + high/2
+		middle := (low + high) / 2
 		guess := list[middle]
 
 		if guess == item {
@@ -23,10 +23,10 @@ func binarySearch(list [128]int, item int) int {
 }
 
 func main() {
-	arr := [128]int{}
+	arr := make([]int, 0, 128)
 
 	for i := 0; i < 128; i++ {
-		arr[i] = i
+		arr = append(arr, i)
 	}
 
 	fmt.Print(binarySearch(arr, 12))
